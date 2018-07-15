@@ -95,15 +95,27 @@ WSGI_APPLICATION = 'internshala_project.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'internshaladb',
-        'HOST': 'localhost',
-        'USER':"root",
-        'PASSWORD': "root"
+if 'RDS_HOSTNAME' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'internshaladb',
+            'HOST': 'localhost',
+            'USER':"root",
+            'PASSWORD': "root"
+        }
+    }
 
 
 # Password validation
@@ -143,6 +155,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT=os.path.join(BASE_DIR,'statics')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'statics'),
 )
