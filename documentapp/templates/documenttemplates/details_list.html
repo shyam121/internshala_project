@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>details page</title>
+    <style>
+
+        .left{
+        float:left;
+        }
+
+    </style>
+</head>
+<body>
+<a href='{% url "documentapp:userprofile" userid %}'><button>view profile</button></a>
+<br>
+<a href='{% url "documentapp:profilepage.edit" userid %}'><button>update profile</button></a>
+
+<!--<br>-->
+<!--<a href='{% url "documentapp:profilepage" %}'>add profile</a>-->
+
+<hr />
+<hr/>
+{% if val%}
+
+{% else %}
+    <a href='{% url "documentapp:details.add" %}'>Add Details</a>
+{% endif %}
+
+{% if object_list %}
+    <table align="center">
+        {% for obj in object_list %}
+            <tr>
+                <td>
+                    <a>{{obj.pk}}</a>
+
+                </td>
+                <td>
+                    {% if obj.marksmemo %}
+
+
+                        <a href='{% url "db_file_storage.get_file" %}?name={{ obj.marksmemo }}' target='_blank'>
+                            <!--<img class="img-class" height=64 width=64 src="{% url 'db_file_storage.get_file' %}?name={{ obj.marksmemo }}" />-->
+                            <h3>{{obj.user}} Marksmemo</h3>
+                        </a>
+
+                        {% ifequal obj.user.id  userid %}
+                            <a href='{% url "db_file_storage.download_file" %}?name={{ obj.marksmemo }}'>
+                            <i>Download</i>
+                            </a>
+                        {% endifequal %}
+                    {% endif %}
+                </td>
+
+                <td>
+                    {% if obj.aadharcard %}
+                        <a href='{% url "db_file_storage.get_file" %}?name={{ obj.aadharcard }}' target='_blank'>
+                            <!--<img height=64 width=64 src="{% url 'db_file_storage.get_file' %}?name={{ obj.aadharcard }}" />-->
+                            <h3>{{obj.user}} aadhar</h3>
+                        </a>
+
+                        {% ifequal obj.user.id  userid %}
+                            <a href='{% url "db_file_storage.download_file" %}?name={{ obj.aadharcard }}'>
+                            <i>Download</i>
+                            </a>
+                        {% endifequal %}
+                    {% endif %}
+                </td>
+
+                <td>
+                    {% if obj.projectfile %}
+                        <a href='{% url "db_file_storage.get_file" %}?name={{ obj.projectfile }}' target='_blank'>
+                            <!--<img height=64 width=64 src="{% url 'db_file_storage.get_file' %}?name={{ obj.projectfile }}" />-->
+                            <h3>{{obj.user}} project</h3>
+                        </a>
+
+                        {% ifequal obj.user.id  userid %}
+                            <a href='{% url "db_file_storage.download_file" %}?name={{ obj.projectfile }}'>
+                            <i>Download</i>
+                            </a>
+                        {% endifequal %}
+                    {% endif %}
+                </td>
+
+                {% ifequal obj.user.id  userid %}
+                <td>
+                    <a href='{{ obj.get_absolute_url_edit }}'>edit/</a>
+                </td>
+                <td>
+                    <a href='{{ obj.get_absolute_url_delete }}'>delete</a>
+                </td>
+                {% endifequal %}
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+<hr/>
+<br>
+    <h1 style="color:blue">No items found.</h1>
+{% endif %}
+<hr/>
+</body>
+</html>
+{% endblock %}

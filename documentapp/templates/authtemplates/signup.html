@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>signup page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Khula' rel='stylesheet'>
+    <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+              margin: 0;
+            }
+
+            /* Style the header */
+            .header {
+                background-color: #f1f1f1;
+                padding: 1px;
+                text-align: center;
+            }
+
+            /* Style the top navigation bar */
+            .topnav {
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            /* Style the topnav links */
+            .topnav a {
+                float: right;
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            /* Change color on hover */
+            .topnav a:hover {
+                background-color: #ddd;
+                color: black;
+            }
+
+            /* Create three unequal columns that floats next to each other */
+            .column {
+                float: left;
+                padding: 10px;
+            }
+
+            /* Left and right column */
+            .column.side {
+                width: 25%;
+            }
+
+            /* Middle column */
+            .column.middle {
+                width: 50%;
+            }
+
+            /* Clear floats after the columns */
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+            @media screen and (max-width: 600px) {
+                .column.side, .column.middle {
+                    width: 100%;
+                }
+            }
+
+            /* Style the footer */
+            .footer {
+                background-color: #f1f1f1;
+                padding: 10px;
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="topnav">
+          <a href="../signup/">Register</a>
+          <a href="../login/">Login</a>
+          <a>Home</a>
+        <a  style="float:left"><b>Internshala</b></a>
+        <!--href="{% url 'documentapp:mainpage' %}"-->
+    </div>
+
+    <div class="row ">
+          <div class="column side">
+          </div>
+          <div class="column middle">
+              <div class="panel panel-default" style="color:#808000">
+                    <div class="panel-heading">
+                        <h2><b>Sign Up</b></h2>
+                    </div>
+                    <form method = "post">
+                    <div class="panel-body">
+                            <div class="row">
+                              <div class="col-md-6 col-sm-offset-3">
+                                <form role="form" action="" method="post">
+                                  {% csrf_token %}
+                                  {{form.as_p}}
+                                </form>
+                              </div>
+                             </div>
+                                <center>
+                                    <input type="submit">
+                                </center>
+                    </div>
+                    </form>
+                    <div class="panel-footer"></div>
+                </div>
+          </div>
+          <div class="column side">
+          </div>
+        </div>
+</body>
+</html>

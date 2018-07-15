@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>profile uploading</title>
+</head>
+<body>
+<h1>welcome to profile page</h1>
+<h1>Profile page</h1>
+<hr/>
+<form method="post" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p>
+        <input type='submit' />
+    </p>
+</form>
+<hr/>
+</body>
+</html>
+{% endblock %}

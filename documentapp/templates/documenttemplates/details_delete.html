@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>details delete page</title>
+</head>
+<body>
+<form method='post'>
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{ object }}"?</p>
+    <input type='submit' value='Confirm' />
+</form>
+
+<div align='center'>
+    <a href='{% url "documentapp:details.list" %}'>Back to list</a>
+</div>
+</body>
+</html>
+{% endblock %}
