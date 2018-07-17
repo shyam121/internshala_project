@@ -132,7 +132,7 @@
 
               <table align="center">
                     {% for obj in object_list %}
-                        {% if obj.user !="admin"%}
+                        {% ifnotequal obj.user.username 'admin' %}
                         <tr>
                            <div class="row">
                                <td>
@@ -155,7 +155,7 @@
                                 </td>
                             </div>
                          </tr>
-                        {% endif %}
+                        {% endifnotequal %}
                     {% endfor %}
               </table>
               <hr/>

@@ -135,11 +135,13 @@
                         <h3>Click on users name for there document</h3>
                         <table>
                             {% for obj in objects%}
+                                {% ifnotequal obj.username 'admin' %}
                                 <tr>
                                     <td>
                                         <a href='{% url "documentapp:uniquedoc" obj.id %}'>{{obj.username}}</a>
                                     </td>
                                 </tr>
+                                {% endifnotequal %}
                             {% endfor %}
                         </table>
                     {% else %}
