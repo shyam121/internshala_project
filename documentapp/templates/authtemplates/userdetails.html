@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>userdetailspage</title>
+    <title>UserDetailsPage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
@@ -99,15 +99,15 @@
 
 
        <div class="header">
-           <!--<h1>Internshala</h1>-->
         </div>
 
         <div class="topnav">
           <a href="{% url 'documentapp:logoutpage' %}">Logout</a>
           <!--<a href="#">Favorites</a>-->
-          <!--<a href="#">Profile</a>-->
+          <!--<a href='{% url "documentapp:profilepage" %}'>Profile</a>-->
+          <a href='{% url "documentapp:userprofile" userid %}'>view profile</a>
           <a href="{% url 'documentapp:userspage' %}">Users</a>
-          <a href="{% url 'documentapp:details.list' %}">Home</a>
+          <a href="{% url 'documentapp:singledoc.list' %}">Home</a>
             <a  style="float:left"><b>Internshala</b></a>
         </div>
 
@@ -115,39 +115,52 @@
           <div class="column side">
             <h2>Short Cuts</h2>
               <div >
-                    <a href="{% url 'documentapp:details.list' %}">Home</a>
+                    <a href="{% url 'documentapp:singledoc.list' %}">Home</a>
                     <br>
                     <a href="{% url 'documentapp:userspage' %}">Users</a>
                     <br>
                     <!--<a href="">Favorites</a>-->
                     <!--<br>-->
-                    <!--<a href="">Profile</a>-->
+                    <!--<a href='{% url "documentapp:profilepage" %}'>Profile</a>-->
                     <!--<br>-->
+                    <a href='{% url "documentapp:userprofile" userid %}'>view profile</a>
+                    <br>
               </div>
           </div>
           <div class="column middle">
-             <h1>Users on this site :)</h1>
-                <hr/>
-                    <table align="center">
-                        {% for obj in object_list %}
-                            <tr>
-                                <!--<td>-->
-                                    <!--{% if obj.user_pic %}-->
-                                        <!--<a href='{% url "db_file_storage.get_file" %}?name={{ obj.user_pic }}' target='_blank'>-->
-                                            <!--<img height=64 width=64 src="{% url 'db_file_storage.get_file' %}?name={{ obj.user_pic }}" style="" />-->
-                                        <!--</a>-->
-                                    <!--{% endif %}-->
-                                <!--</td>-->
-                                <td>
-                                    <a href="{% url 'documentapp:userprofile' obj.id %}">{{obj.username}}</a>
+                <h1>Users on this site :)</h1>
+
+              <table align="center">
+                    {% for obj in object_list %}
+                        <tr>
+                           <div class="row">
+                               <td>
+                                   <hr/>
+                                <div class="col-xs-6">
+                                <!--<img src="" style="width:200px; margin-left:-15px; border-radius:50%" />-->
+                                    {% if obj.user_pic == "default.jpg" %}
+                                        <img height=64 width=64 src="/media/default.jpg" style="padding:5px;border-radius:50%" class="w3-border"/>
+                                    {% else %}
+                                     <a href='{% url "db_file_storage.get_file" %}?name={{ obj.user_pic }}' target='_blank'>
+                                        <img class="w3-border" height=64 width=64 src="{% url 'db_file_storage.get_file' %}?name={{ obj.user_pic }}" style="padding:5px;border-radius:50%" />
+                                    </a>
+                                    {% endif %}
+                                </div>
                                 </td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                <hr/>
+                                <td>
+                                <div class="col-xs-6">
+                                    <a href="{% url 'documentapp:userprofile' obj.id %}">&nbsp;{{obj.user}}</a>
+                                </div>
+                                </td>
+                            </div>
+                         </tr>
+                    {% endfor %}
+              </table>
+              <hr/>
           </div>
 
-          <div class="column side"></div>
+          <div class="column side">
+          </div>
         </div>
 
         <div class="footer">
@@ -155,5 +168,3 @@
         </div>
 </body>
 </html>
-
-

@@ -2,9 +2,159 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>UserDocument_lists</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+              margin: 0;
+            }
+
+            /* Style the header */
+            .header {
+                background-color: #f1f1f1;
+                padding: 1px;
+                text-align: center;
+            }
+
+            /* Style the top navigation bar */
+            .topnav {
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            /* Style the topnav links */
+            .topnav a {
+                float: right;
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            /* Change color on hover */
+            .topnav a:hover {
+                background-color: #ddd;
+                color: black;
+            }
+
+            /* Create three unequal columns that floats next to each other */
+            .column {
+                float: left;
+                padding: 10px;
+            }
+
+            /* Left and right column */
+            .column.side {
+                width: 25%;
+            }
+
+            /* Middle column */
+            .column.middle {
+                width: 50%;
+                background-color: #F5F5F5;
+                float: left;
+                height: 300px;
+                margin-bottom: 25px;
+                margin-top: 40px;
+                overflow-y: scroll;
+                min-height: 450px;
+            }
+
+            /* Clear floats after the columns */
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+            @media screen and (max-width: 600px) {
+                .column.side, .column.middle {
+                    width: 100%;
+                }
+            }
+
+            /* Style the footer */
+            .footer {
+                background-color: #f1f1f1;
+                padding: 10px;
+                text-align: center;
+            }
+            .dot {
+    height: 350px;
+    width: 350px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+    </style>
 </head>
 <body>
-$END$
+
+
+       <div class="header">
+        </div>
+
+        <div class="topnav">
+          <a href="{% url 'documentapp:logoutpage' %}">Logout</a>
+          <!--<a href="#">Favorites</a>-->
+          <!--<a href='{% url "documentapp:profilepage" %}'>Profile</a>-->
+          <a href='{% url "documentapp:userprofile" userid %}'>view profile</a>
+          <a href="{% url 'documentapp:userspage' %}">Users</a>
+          <a href="{% url 'documentapp:singledoc.list' %}">Home</a>
+            <a  style="float:left"><b>Internshala</b></a>
+        </div>
+
+        <div class="row ">
+          <div class="column side">
+            <h2>Short Cuts</h2>
+              <div >
+                    <a href="{% url 'documentapp:singledoc.list' %}">Home</a>
+                    <br>
+                    <a href="{% url 'documentapp:userspage' %}">Users</a>
+                    <br>
+                    <!--<a href="">Favorites</a>-->
+                    <!--<br>-->
+                    <!--<a href='{% url "documentapp:profilepage" %}'>Profile</a>-->
+                    <!--<br>-->
+                    <a href='{% url "documentapp:userprofile" userid %}'>view profile</a>
+                    <br>
+                    <!--<a href='{% url "documentapp:profilepage.edit" userid %}'>update profile</a>-->
+                    <!--<br>-->
+              </div>
+          </div>
+          <div class="column middle">
+                    {% if objects %}
+                        <a href='{% url "documentapp:singledoc.add" %}'>Add singledoc</a>
+                        <h3>Click on users name for there document</h3>
+                        <table>
+                            {% for obj in objects%}
+                                <tr>
+                                    <td>
+                                        <a href='{% url "documentapp:uniquedoc" obj.id %}'>{{obj.username}}</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    {% else %}
+                        <h5>you are first user to upload few files lets go click on it</h5>
+                        <a href='{% url "documentapp:singledoc.add" %}'>Add singledoc</a>
+                    {% endif %}
+                <hr/>
+          </div>
+
+          <div class="column side">
+          </div>
+        </div>
+
+        <div class="footer">
+          <b>store Data and get Info</b>
+        </div>
 </body>
 </html>

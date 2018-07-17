@@ -69,18 +69,19 @@ class SingleDocumentStorage(models.Model):
 
 class SingleDocument(models.Model):
     document_pk=models.AutoField(primary_key=True)
+    filename=models.CharField(max_length=100,default="Marksmemo")
     file = models.FileField(
         upload_to='documentapp.SingleDocumentStorage/bytes/filename/mimetype',
         blank=True, null=True
     )
-
+    visible=models.IntegerField('0:not visible ',default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def get_absolute_url_edit(self):
-        return reverse('documentapp:details.edit', kwargs={'pk': self.pk})
+        return reverse('documentapp:singledoc.edit', kwargs={'pk': self.pk})
 
     def get_absolute_url_delete(self):
-        return reverse('documentapp:details.delete', kwargs={'pk': self.pk})
+        return reverse('documentapp:singledoc.delete', kwargs={'pk': self.pk})
 
     def save(self, *args, **kwargs):
         delete_file_if_needed(self, 'file')

@@ -22,12 +22,12 @@ class show_profile(LoginRequiredMixin,ListView):
 
 class UserDetailsView(LoginRequiredMixin,ListView):
     login_url = '/login/'
-    queryset=User.objects.all()
+    queryset=Profile.objects.all()
     template_name = 'authtemplates/userdetails.html'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(UserDetailsView, self).get_context_data(**kwargs)
-        context['profiledata']=Profile.objects.all()
+        context['userid'] = self.request.user.id
         return context
 
 class add_profile(LoginRequiredMixin,CreateView):
@@ -35,7 +35,7 @@ class add_profile(LoginRequiredMixin,CreateView):
     model = Profile
     form_class = ProfileForm
     template_name = 'profiletemplates/profile_add.html'
-    success_url = urls.reverse_lazy('documentapp:details.list')
+    success_url = urls.reverse_lazy('documentapp:singledoc.list')
 
     def post(self, request, *args, **kwargs):
         username = self.request.user.get_username()
@@ -44,9 +44,13 @@ class add_profile(LoginRequiredMixin,CreateView):
             credit_card = credit_form.save(commit=False)
             credit_card.user = self.request.user
             credit_card.save()
-            return redirect('documentapp:details.list')
+            return redirect('documentapp:singledoc.list')
         else:
             return redirect('documentapp:loginpage')
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(add_profile, self).get_context_data(**kwargs)
+        context['userid'] = self.request.user.id
+        return context
 
 class edit_profile(LoginRequiredMixin,PermissionRequiredMixin,UpdateView):
     login_url = '/login/'
@@ -54,10 +58,14 @@ class edit_profile(LoginRequiredMixin,PermissionRequiredMixin,UpdateView):
     form_class = ProfileForm
     template_name = 'profiletemplates/profile_update.html'
 
-    success_url = urls.reverse_lazy('documentapp:details.list')
+    success_url = urls.reverse_lazy('documentapp:singledoc.list')
     def has_permission(self):
         existing_form = Profile.objects.get(pk=self.kwargs['pk'])
         if self.request.user == existing_form.user:
             return True
         else:
             PermissionError
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(edit_profile, self).get_context_data(**kwargs)
+        context['userid'] = self.request.user.id
+        return context

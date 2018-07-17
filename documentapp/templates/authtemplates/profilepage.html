@@ -2,14 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>profilepage</title>
+    <title>UserDocument_lists</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
-                  .left{
-        float:left;
-        }
-
+            #details_div{
+                width:100px;
+                height:100px;
+                <!--border:1px solid red;-->
+                margin-right:10px;
+                margin-left:20px;
+                float:left;
+            }
+            #profile_div{
+                width:100px;
+                height:100px;
+                <!--border:1px solid red;-->
+                margin-right:10px;
+                float:left;
+            }
+            .child_div{
+                float:left;
+                margin-right:5px;
+            }
+            .left{
+                float:left;
+            }
             * {
                 box-sizing: border-box;
             }
@@ -103,15 +121,15 @@
 
 
        <div class="header">
-           <!--<h1>Internshala</h1>-->
         </div>
 
         <div class="topnav">
           <a href="{% url 'documentapp:logoutpage' %}">Logout</a>
           <!--<a href="#">Favorites</a>-->
-          <!--<a href="#">Profile</a>-->
+          <!--<a href='{% url "documentapp:profilepage" %}'>Profile</a>-->
+          <a href='{% url "documentapp:userprofile" personid %}'>view profile</a>
           <a href="{% url 'documentapp:userspage' %}">Users</a>
-          <a href="{% url 'documentapp:details.list' %}">Home</a>
+          <a href="{% url 'documentapp:singledoc.list' %}">Home</a>
             <a  style="float:left"><b>Internshala</b></a>
         </div>
 
@@ -119,46 +137,51 @@
           <div class="column side">
             <h2>Short Cuts</h2>
               <div >
-                    <a href="{% url 'documentapp:details.list' %}">Home</a>
+                    <a href="{% url 'documentapp:singledoc.list' %}">Home</a>
                     <br>
                     <a href="{% url 'documentapp:userspage' %}">Users</a>
                     <br>
                     <!--<a href="">Favorites</a>-->
                     <!--<br>-->
-                    <!--<a href="">Profile</a>-->
+                    <!--<a href='{% url "documentapp:profilepage" %}'>Profile</a>-->
                     <!--<br>-->
+                    <a href='{% url "documentapp:userprofile" personid %}'>view profile</a>
+                    <br>
               </div>
           </div>
           <div class="column middle">
-              <h1>{{user.username}} profiles page </h1>
+              <h1>{{user.username}} profile page </h1>
                 {% ifequal user.id personid%}
                     <a href='{% url "documentapp:profilepage.edit" user.id %}'>
                     <button>Update</button>
                     </a>
                 {% endifequal %}
-
                 <hr/>
-                <div class="wrap">
-                    <div class="left">
-                        <!--<img height=64 width=64 src="/media/default.jpg" style="padding:5px" class="w3-border"/>-->
+                <div id='profile_div'>
+                    <div class ='child_div'>
                         {% if obj.user_pic == "default.jpg" %}
                             <img height=104 width=104 src="/media/{{obj.user_pic}}" style="padding:5px" class="w3-border"/>
+                            <!--<h2>{{user.username}}</h2>-->
                         {% else %}
                             <a href='{% url "db_file_storage.get_file" %}?name={{ obj.user_pic }}' target='_blank'>
-                                <img height=104 width=104 src="{% url 'db_file_storage.get_file' %}?name={{ obj.user_pic }}" />
+                            <img height=104 width=104 src="{% url 'db_file_storage.get_file' %}?name={{ obj.user_pic }}" style="padding:5px" class="w3-border"/>
                             </a>
                         {% endif %}
                     </div>
-                    <div >
-                        <h2>{{user.username}}</h2>
-                    </div>
-                    <br>
-                    </div>
-                <hr/>
+                </div>
+
+                <div id='details_div'>
+                    {% if obj.user_pic != "default.jpg" %}
+                        <h4>City:</h4><div class ='child_div'>{{obj.city}}</div>
+                        <h4>ADDRESS:</h4><div class ='child_div'>{{obj.address}} </div>
+                    <h1></h1>
+                    {%else%}
+                        <div class ='child_div'>{{user.username}}</div>
+                    {% endif %}
+                </div>
           </div>
 
           <div class="column side">
-
           </div>
         </div>
 

@@ -15,19 +15,18 @@ class SignupView(View):
     def post(self,request):
         form=SignupDETAILS(request.POST)
         if form.is_valid():
-            #user=User.objects.create_user(**form.cleaned_data)
             User.objects.create_user(**form.cleaned_data)
             user=authenticate(request,username=form.cleaned_data['username'],password=form.cleaned_data['password'])
             if user is not None:
                 login(request,user)
-                return redirect("documentapp:details.list")
+                return redirect("documentapp:singledoc.list")
             else:
                 return redirect("documentapp:sign_up")
 
 class LoginView(View):
     def get(self,request):
         if request.user.is_authenticated:
-            return redirect('myapp:mainpage')
+            return redirect('documentapp:singledoc.list')
         loginform=LoginupDETAILS()
         return render(request=request,template_name="authtemplates/loginpage.html",context={"form":loginform})
 
@@ -37,7 +36,7 @@ class LoginView(View):
             user=authenticate(request,username=form.cleaned_data['username'],password=form.cleaned_data['password'])
             if user is not None:
                 login(request,user)
-                return redirect("documentapp:details.list")
+                return redirect("documentapp:singledoc.list")
             else:
                 return redirect("documentapp:loginpage")
 
