@@ -132,6 +132,7 @@
 
               <table align="center">
                     {% for obj in object_list %}
+                        {% if obj.user !="admin"%}
                         <tr>
                            <div class="row">
                                <td>
@@ -154,6 +155,7 @@
                                 </td>
                             </div>
                          </tr>
+                        {% endif %}
                     {% endfor %}
               </table>
               <hr/>
