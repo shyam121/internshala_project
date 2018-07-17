@@ -2,34 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6cc87b9c-ad95-4ced-8b7f-ce012ec1c726" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/profileapp/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/profileapp/admin.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/profileapp/apps.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/profileapp/migrations/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/profileapp/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/profileapp/tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/profileapp/views.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/profileapp/views/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/documentapp/migrations/0001_initial.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentapp/models.py" afterPath="$PROJECT_DIR$/documentapp/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentapp/templates/authtemplates/loginpage.html" afterPath="$PROJECT_DIR$/documentapp/templates/authtemplates/loginpage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentapp/templates/authtemplates/profilepage.html" afterPath="$PROJECT_DIR$/documentapp/templates/authtemplates/profilepage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentapp/templates/authtemplates/userdetails.html" afterPath="$PROJECT_DIR$/documentapp/templates/authtemplates/userdetails.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentapp/templates/profiletemplates/profile_add.html" afterPath="$PROJECT_DIR$/documentapp/templates/profiletemplates/profile_add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentapp/templates/profiletemplates/profile_update.html" afterPath="$PROJECT_DIR$/documentapp/templates/profiletemplates/profile_update.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentapp/templates/singledoctemplates/getuniquedetails.html" afterPath="$PROJECT_DIR$/documentapp/templates/singledoctemplates/getuniquedetails.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentapp/templates/singledoctemplates/singledoclist_add.html" afterPath="$PROJECT_DIR$/documentapp/templates/singledoctemplates/singledoclist_add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentapp/templates/singledoctemplates/singledoclist_delete.html" afterPath="$PROJECT_DIR$/documentapp/templates/singledoctemplates/singledoclist_delete.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentapp/templates/singledoctemplates/singledoclist_edit.html" afterPath="$PROJECT_DIR$/documentapp/templates/singledoctemplates/singledoclist_edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentapp/templates/singledoctemplates/singledoclists.html" afterPath="$PROJECT_DIR$/documentapp/templates/singledoctemplates/singledoclists.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentapp/urls.py" afterPath="$PROJECT_DIR$/documentapp/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentapp/views/__init__.py" afterPath="$PROJECT_DIR$/documentapp/views/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentapp/views/authview.py" afterPath="$PROJECT_DIR$/documentapp/views/authview.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentapp/views/profileviews.py" afterPath="$PROJECT_DIR$/documentapp/views/profileviews.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentapp/views/singledocViews.py" afterPath="$PROJECT_DIR$/documentapp/views/singledocViews.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/internshala_project/settings.py" afterPath="$PROJECT_DIR$/internshala_project/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/internshala_project/urls.py" afterPath="$PROJECT_DIR$/internshala_project/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/push.bat" afterPath="$PROJECT_DIR$/push.bat" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -62,11 +36,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="push.bat" pinned="false" current-in-tab="true">
+      <file leaf-file-name="push.bat" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/push.bat">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
               <caret line="1" column="9" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="manage.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/manage.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -168,6 +152,12 @@
             <path>
               <item name="internshala_project" type="b2602c69:ProjectViewProjectNode" />
               <item name="internshala_project" type="462c0819:PsiDirectoryNode" />
+              <item name="documentapp" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="internshala_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="internshala_project" type="462c0819:PsiDirectoryNode" />
               <item name="internshala_project" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -209,7 +199,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26096824" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -219,7 +208,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32993197" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32993197" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -368,13 +357,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -654,6 +636,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="9" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
