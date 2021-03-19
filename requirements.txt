@@ -17,7 +17,7 @@ django-filter==1.1.0
 django-mysql==2.2.2
 django-phonenumber-field==2.0.0
 django-webpack-loader==0.6.0
-djangorestframework==3.8.2
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 docutils==0.14
 et-xmlfile==1.0.1
