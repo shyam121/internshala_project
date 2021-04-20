@@ -40,7 +40,7 @@ phonenumberslite==8.9.9
 pickleshare==0.7.4
 Pillow==5.2.0
 prompt-toolkit==1.0.15
-py==1.5.2
+py==1.10.0
 Pygments==2.2.0
 PyJWT==1.6.4
 pytest==3.2.5
