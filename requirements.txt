@@ -1,5 +1,5 @@
 awsebcli==3.14.2
-Babel==2.6.0
+Babel==2.9.1
 backcall==0.1.0
 beautifulsoup4==4.6.0
 botocore==1.10.58
