@@ -42,7 +42,7 @@ Pillow==5.2.0
 prompt-toolkit==1.0.15
 py==1.5.2
 Pygments==2.2.0
-PyJWT==1.6.4
+PyJWT==2.4.0
 pytest==3.2.5
 python-dateutil==2.7.3
 python-dotenv==0.8.2
